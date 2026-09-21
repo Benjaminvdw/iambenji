@@ -1,0 +1,19 @@
+name = "portfolio"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist"
+
+[[kv_namespaces]]
+binding = "VISITOR_COUNTER"
+id = "a3ba543ab50c4b8687d4e43ab914b6cf"
+
+[[kv_namespaces]]
+binding = "POST_ITS"
+id = "8bb63d7be367425097e30f55795fdb88"
+
+[[kv_namespaces]]
+binding = "DIARY_ENTRIES"
+id = "848f2580048b4a2f8eb442c1ddfb0d09"
+
+[[kv_namespaces]]
+binding = "GLOBE_PINS"
+id = "45255b0e455846639cc702c73c3915de"
