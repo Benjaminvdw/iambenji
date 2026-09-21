@@ -13,11 +13,3 @@ My personal website and blog — a React + Vite frontend with a Cloudflare Pages
 ## Stack
 
 React 19, Vite, React Router, three.js, Cloudflare Pages Functions, Cloudflare KV.
-
-## Running locally
-
-```sh
-npm install
-cp .env.example .dev.vars   # fill in your own values
-npm run dev:pages
-```
