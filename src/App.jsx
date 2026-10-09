@@ -4,6 +4,7 @@ import Dandelion from './Dandelion'
 import Fireflies from './Fireflies'
 import PostItBoard from './PostItBoard'
 import DiaryFeed from './DiaryFeed'
+import MusicReviewsFeed from './MusicReviewsFeed'
 import starsBlinkie from './assets/blinkies/0124-stars.gif'
 import leavesBlinkie from './assets/blinkies/0191-fallleaves.gif'
 import cafeKyBlinkie from './assets/blinkies/blinkiesCafe-ky.gif'
@@ -20,6 +21,7 @@ const TAB_PATHS = {
   now: '/now',
   postits: '/postits',
   globe: '/globe',
+  reviews: '/reviews',
 }
 
 const PATH_TO_TAB = Object.fromEntries(Object.entries(TAB_PATHS).map(([k, v]) => [v, k]))
@@ -64,6 +66,12 @@ const tabs = {
     label: 'Globe',
     title: 'What are you listening to?',
     stamp: 'Drop a pin :)',
+    body: [],
+  },
+  reviews: {
+    label: 'Reviews',
+    title: 'Music Reviews',
+    stamp: 'Rating my favorite albums',
     body: [],
   },
 }
@@ -481,6 +489,8 @@ export default function App() {
 
           {activeTab === 'diary' ? (
             <DiaryFeed limit={3} />
+          ) : activeTab === 'reviews' ? (
+            <MusicReviewsFeed />
           ) : activeTab === 'postits' ? (
             <PostItBoard />
           ) : activeTab === 'now' ? (
