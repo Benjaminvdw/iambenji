@@ -11,7 +11,7 @@ function CircleDiagram({ rating }) {
         <circle cx="28" cy="28" r={radius} stroke="currentColor" strokeWidth="4" fill="none" opacity="0.2" />
         <circle cx="28" cy="28" r={radius} stroke="currentColor" strokeWidth="4" fill="none" strokeDasharray={circumference} strokeDashoffset={strokeDashoffset} strokeLinecap="round" style={{ transition: 'stroke-dashoffset 1s ease-out' }} />
       </svg>
-      <span style={{ fontWeight: 'bold', fontSize: '14px' }}>{rating}</span>
+      <span style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontWeight: 'bold', fontSize: '14px', lineHeight: 1, marginTop: 1 }}>{rating}</span>
     </div>
   )
 }
@@ -71,9 +71,12 @@ function ShareModal({ review, onClose }) {
               </div>
               <CircleDiagram rating={review.rating} />
             </div>
-            <blockquote style={{ margin: 0, fontStyle: 'italic', fontSize: '16px', borderLeft: `4px solid ${fg}`, paddingLeft: 12 }}>
-              "{review.description}"
-            </blockquote>
+            <div style={{ display: 'flex' }}>
+              <div style={{ width: 4, backgroundColor: fg, flexShrink: 0, borderRadius: 2 }} />
+              <div style={{ fontStyle: 'italic', fontSize: '16px', paddingLeft: 12, paddingTop: 2, paddingBottom: 2, lineHeight: 1.5, whiteSpace: 'pre-wrap', display: 'flex', alignItems: 'center' }}>
+                "{review.description}"
+              </div>
+            </div>
             <div style={{ fontSize: '12px', opacity: 0.6, textAlign: 'right', marginTop: 12 }}>
               iambenji.com
             </div>
@@ -126,9 +129,12 @@ export default function MusicReviewsFeed() {
             <CircleDiagram rating={r.rating} />
           </div>
 
-          <blockquote style={{ fontStyle: 'italic', borderLeft: '4px solid currentColor', paddingLeft: 12, margin: '16px 0', opacity: 0.9, whiteSpace: 'pre-wrap' }}>
-            "{r.description}"
-          </blockquote>
+          <div style={{ display: 'flex', margin: '16px 0', opacity: 0.9 }}>
+            <div style={{ width: 4, backgroundColor: 'currentColor', flexShrink: 0, borderRadius: 2 }} />
+            <div style={{ fontStyle: 'italic', paddingLeft: 12, paddingTop: 2, paddingBottom: 2, lineHeight: 1.5, whiteSpace: 'pre-wrap', display: 'flex', alignItems: 'center' }}>
+              "{r.description}"
+            </div>
+          </div>
         </article>
       ))}
 
