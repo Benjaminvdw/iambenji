@@ -7,11 +7,11 @@ function CircleDiagram({ rating }) {
   const strokeDashoffset = circumference - (rating / 10) * circumference
   return (
     <div style={{ position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-      <svg width="56" height="56" style={{ position: 'absolute', top: 0, left: 0, transform: 'rotate(-90deg)' }}>
+      <svg width="56" height="56" style={{ position: 'absolute', top: 0, left: 0 }}>
         <circle cx="28" cy="28" r={radius} stroke="currentColor" strokeWidth="4" fill="none" opacity="0.2" />
-        <circle cx="28" cy="28" r={radius} stroke="currentColor" strokeWidth="4" fill="none" strokeDasharray={circumference} strokeDashoffset={strokeDashoffset} strokeLinecap="round" style={{ transition: 'stroke-dashoffset 1s ease-out' }} />
+        <circle cx="28" cy="28" r={radius} stroke="currentColor" strokeWidth="4" fill="none" strokeDasharray={circumference} strokeDashoffset={strokeDashoffset} strokeLinecap="round" transform="rotate(-90 28 28)" style={{ transition: 'stroke-dashoffset 1s ease-out' }} />
       </svg>
-      <span style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontWeight: 'bold', fontSize: '14px', lineHeight: 1, marginTop: 1 }}>{rating}</span>
+      <span style={{ fontWeight: 'bold', fontSize: '14px', zIndex: 1 }}>{rating}</span>
     </div>
   )
 }
@@ -72,8 +72,8 @@ function ShareModal({ review, onClose }) {
               <CircleDiagram rating={review.rating} />
             </div>
             <div style={{ display: 'flex' }}>
-              <div style={{ width: 4, backgroundColor: fg, flexShrink: 0, borderRadius: 2 }} />
-              <div style={{ fontStyle: 'italic', fontSize: '16px', paddingLeft: 12, paddingTop: 2, paddingBottom: 2, lineHeight: 1.5, whiteSpace: 'pre-wrap', display: 'flex', alignItems: 'center' }}>
+              <div style={{ width: 4, backgroundColor: fg, flexShrink: 0 }} />
+              <div style={{ fontStyle: 'italic', fontSize: '16px', paddingLeft: 12, lineHeight: 1.4, whiteSpace: 'pre-wrap' }}>
                 "{review.description}"
               </div>
             </div>
@@ -130,8 +130,8 @@ export default function MusicReviewsFeed() {
           </div>
 
           <div style={{ display: 'flex', margin: '16px 0', opacity: 0.9 }}>
-            <div style={{ width: 4, backgroundColor: 'currentColor', flexShrink: 0, borderRadius: 2 }} />
-            <div style={{ fontStyle: 'italic', paddingLeft: 12, paddingTop: 2, paddingBottom: 2, lineHeight: 1.5, whiteSpace: 'pre-wrap', display: 'flex', alignItems: 'center' }}>
+            <div style={{ width: 4, backgroundColor: 'currentColor', flexShrink: 0 }} />
+            <div style={{ fontStyle: 'italic', paddingLeft: 12, lineHeight: 1.4, whiteSpace: 'pre-wrap' }}>
               "{r.description}"
             </div>
           </div>
